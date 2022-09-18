@@ -1,0 +1,36 @@
+{
+  "kind": "collectionType",
+  "collectionName": "orders",
+  "info": {
+    "singularName": "order",
+    "pluralName": "orders",
+    "displayName": "Order",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Invoice_Number": {
+      "type": "string",
+      "unique": false
+    },
+    "order_detail_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order-detail.order-detail",
+      "private": true,
+      "inversedBy": "order_id"
+    },
+    "customers_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::customer.customer",
+      "inversedBy": "orders_id"
+    },
+    "Total_Price": {
+      "type": "biginteger"
+    }
+  }
+}

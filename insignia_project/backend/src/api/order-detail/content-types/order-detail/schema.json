@@ -1,0 +1,31 @@
+{
+  "kind": "collectionType",
+  "collectionName": "order_details",
+  "info": {
+    "singularName": "order-detail",
+    "pluralName": "order-details",
+    "displayName": "Order_Detail",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "order_id": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::order.order",
+      "mappedBy": "order_detail_id"
+    },
+    "Price": {
+      "type": "biginteger"
+    },
+    "travel_package_ids": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::travel-package.travel-package",
+      "mappedBy": "order_details_ids"
+    }
+  }
+}

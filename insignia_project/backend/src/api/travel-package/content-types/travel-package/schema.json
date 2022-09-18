@@ -1,0 +1,46 @@
+{
+  "kind": "collectionType",
+  "collectionName": "travel_packages",
+  "info": {
+    "singularName": "travel-package",
+    "pluralName": "travel-packages",
+    "displayName": "Travel Package",
+    "description": ""
+  },
+  "options": {
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "text"
+    },
+    "Price": {
+      "type": "biginteger",
+      "required": true
+    },
+    "Image": {
+      "type": "media",
+      "multiple": true,
+      "required": false,
+      "allowedTypes": [
+        "images",
+        "videos",
+        "audios",
+        "files"
+      ]
+    },
+    "order_details_ids": {
+      "type": "relation",
+      "relation": "manyToMany",
+      "target": "api::order-detail.order-detail",
+      "private": true,
+      "inversedBy": "travel_package_ids"
+    }
+  }
+}
